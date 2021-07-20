@@ -71,12 +71,12 @@
           "apiVersion": "2020-10-01",
           "name": "vng-01",
           "properties": {
-            "mode": "Complete",
+            "mode": "Incremental",
             "templateLink": {
-              "relativePath": "children/vnet-01/vng-01-template.json"
+              "uri": "https://github.com/Nustinian/arm-templates/blob/main/children/vnet-01/vng-01-template.json?raw=true"
             },
             "parametersLink": {
-              "relativePath": "children/vnet-01/vng-01-parameters.json"
+              "uri": "https://github.com/Nustinian/arm-templates/blob/main/children/vnet-01/vng-01-parameters.json?raw=true"
             }
           }
         }
