@@ -75,6 +75,43 @@
                 "sku": {
                     "name": "[parameters('sku')]",
                     "tier": "[parameters('sku')]"
+                },
+                "enableBgp": false,
+                "activeActive": false,
+                "vpnClientConfiguration": {
+                    "vpnClientAddressPool": {
+                        "addressPrefixes": [
+                            "192.168.0.0/29"
+                        ]
+                    },
+                    "vpnClientProtocols": [
+                        "SSTP"
+                    ],
+                    "vpnAuthenticationTypes": [
+                        "Certificate"
+                    ],
+                    "vpnClientRootCertificates": [
+                        {
+                            "name": "rootcert",
+                            "properties": {
+                                "publicCertData": "MIIC5zCCAc+gAwIBAgIQeNKFzF8ZU5xKCvUG5ZU9+zANBgkqhkiG9w0BAQsFADAW MRQwEgYDVQQDDAtQMlNSb290Q2VydDAeFw0yMTA3MTkwNzM4MDlaFw0yMjA3MTkw NzU4MDlaMBYxFDASBgNVBAMMC1AyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEF AAOCAQ8AMIIBCgKCAQEAlGM6axnfSr0RT6u9m9s7YoVke1tUR3kP268aNerA72Ol ZHeOuvLDLRDoZ67QV1xukeDFjKra6eyXK4ChhOASV4gD4bIbm3I+nKUm8l8lYyi9 gK2EcCl4rqzt5Gvpa6re3RH3A2detRRL3jBI2BG9gu8vtQ8eulFWEM2XNDzoaKRC UBGNBISSUAflXtujbPTHYQbc9kdmIjZ8mRP09TeMIIQ0LPClXiS+Mf+cHInq/Dva 8Z3ixG5wvq+LfZrGbm1cS1vqHq513f7wvmZGrhAbY5TBHe8Y1YMxxstycvWYWo0n 7+fMbGLtnse1kg4XV08zqQa/X0TDtTuGTefPdS0VyQIDAQABozEwLzAOBgNVHQ8B Af8EBAMCAgQwHQYDVR0OBBYEFANWDCDeQ/mEtPVtxnoeJnKvm2iKMA0GCSqGSIb3 DQEBCwUAA4IBAQCNMOC1zR+FFvB3S9ejFRH5iXfoVSJJB7l6Lp8d5A+L2+K1R5j+ IcrzgBbSmcKjm90syTHIMdR3t63FZ6T5lvlOgSx0G/xgVD+M9HYOAuAPfk4B+pVR NlUy2J12c+9JrGi01Ag6g0MBsx/30wdquNVaC5xxWEugYPdliG9UXWJ767U+sRMI sAUOrx3UIZTOIDYPS4+xQ6348VGDbgeOMKKsGdU5Zrkgt96LeP1u8UQHV1ro2WaS pgF4QfxdJgaIj7D/IkfM1P5rPMm9Wr/Akhy4un0YNGa5PEpWkrXpVce0huOBhIPC qCCCtmltHO/30WNJ35rSihQ6a5sLDfY9pzd9"
+                            }
+                        }
+                    ],
+                    "vpnClientRevokedCertificates": [],
+                    "radiusServers": [],
+                    "vpnClientIpsecPolicies": []
+                },
+                "bgpSettings": {
+                    "asn": 65515,
+                    "bgpPeeringAddress": "10.0.1.254",
+                    "peerWeight": 0,
+                    "bgpPeeringAddresses": [
+                        {
+                            "ipconfigurationId": "[concat(resourceId('Microsoft.Network/virtualNetworkGateways', parameters('virtualNetworkGateways_vnet_01_vng_01_name')), '/ipConfigurations/default')]",
+                            "customBgpIpAddresses": []
+                        }
+                    ]
                 }
             }
         },

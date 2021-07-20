@@ -6,48 +6,19 @@
             "value": "japaneast"
         },
         "networkInterfaceName": {
-            "value": "vm-01822"
+            "value": "vm-01487"
         },
         "networkSecurityGroupName": {
             "value": "vm-01-nsg"
         },
         "networkSecurityGroupRules": {
-            "value": [
-                {
-                    "name": "RDP",
-                    "properties": {
-                        "priority": 300,
-                        "protocol": "TCP",
-                        "access": "Allow",
-                        "direction": "Inbound",
-                        "sourceAddressPrefix": "*",
-                        "sourcePortRange": "*",
-                        "destinationAddressPrefix": "*",
-                        "destinationPortRange": "3389"
-                    }
-                }
-            ]
+            "value": []
         },
         "subnetName": {
             "value": "default"
         },
-        "virtualNetworkName": {
-            "value": "studying-vnet"
-        },
-        "addressPrefixes": {
-            "value": [
-                "10.0.0.0/16"
-            ]
-        },
-        "subnets": {
-            "value": [
-                {
-                    "name": "default",
-                    "properties": {
-                        "addressPrefix": "10.0.0.0/24"
-                    }
-                }
-            ]
+        "virtualNetworkId": {
+            "value": "/subscriptions/0afae75c-bdae-4af3-b011-17f55b4162a0/resourceGroups/vnet-01/providers/Microsoft.Network/virtualNetworks/vnet-01"
         },
         "publicIpAddressName": {
             "value": "vm-01-ip"
@@ -65,7 +36,7 @@
             "value": "vm-01"
         },
         "virtualMachineRG": {
-            "value": "studying"
+            "value": "vm-01"
         },
         "osDiskType": {
             "value": "StandardSSD_LRS"
@@ -101,7 +72,7 @@
             "value": "Disabled"
         },
         "autoShutdownNotificationLocale": {
-            "value": "ja"
+            "value": "en"
         }
     }
 }

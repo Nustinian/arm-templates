@@ -73,10 +73,10 @@
           "properties": {
             "mode": "Incremental",
             "templateLink": {
-              "uri": "https://github.com/Nustinian/arm-templates/blob/main/children/vnet-01/vng-01-template.json?raw=true"
+              "uri": "https://raw.githubusercontent.com/Nustinian/arm-templates/main/children/vnet-01/vng-01-template.json?flush_cache=True"
             },
             "parametersLink": {
-              "uri": "https://github.com/Nustinian/arm-templates/blob/main/children/vnet-01/vng-01-parameters.json?raw=true"
+              "uri": "https://raw.githubusercontent.com/Nustinian/arm-templates/main/children/vnet-01/vng-01-parameters.json?flush_cache=True"
             }
           }
         }

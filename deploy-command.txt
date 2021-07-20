@@ -1,4 +1,4 @@
-$rgName = "vnet-01"
+$rgName = "vm-01"
 $location = "JapanEast"
 Get-AzResourceGroup -Name $rgName -ErrorVariable $($rgName + 'notExist' -replace '-') -ErrorAction SilentlyContinue
 
