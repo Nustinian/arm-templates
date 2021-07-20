@@ -1,0 +1,18 @@
+$rgName = "vnet-01"
+$location = "JapanEast"
+Get-AzResourceGroup -Name $rgName -ErrorVariable $($rgName + 'notExist' -replace '-') -ErrorAction SilentlyContinue
+
+if ( $(Get-Variable ($rgName + 'notExist' -replace '-') -ValueOnly) )
+{
+    echo $rgName" doesn't exist yet. Creating..."
+    New-AzResourceGroup -Name $rgName -Location $location    
+}
+else
+{
+    echo $rgName" exists. Continuing..."
+}
+
+$templatePath = "C:\Users\austinatwood\Desktop\arm templates\" + $rgName + "-template.json"
+$parametersPath = "C:\Users\austinatwood\Desktop\arm templates\" + $rgName + "-parameters.json"
+
+New-AzResourceGroupDeployment -ResourceGroupName $rgName -TemplateFile $templatePath -TemplateParameterFile $parametersPath -Mode Complete -Force

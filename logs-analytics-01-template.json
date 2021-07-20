@@ -1,0 +1,95 @@
+{
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaces_logs_analytics_01_name": {
+            "defaultValue": "logs-analytics-01",
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "microsoft.operationalinsights/workspaces",
+            "apiVersion": "2020-10-01",
+            "name": "[parameters('workspaces_logs_analytics_01_name')]",
+            "location": "japaneast",
+            "resources": [
+                        {
+                            "type": "datasources",
+                            "apiVersion": "2020-08-01",
+                            "name": "WindowsEventsSystem",
+                            "dependsOn": [
+                                "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaces_logs_analytics_01_name'))]"
+                            ],
+                            "kind": "WindowsEvent",
+                            "properties": {
+                                "eventLogName": "System",
+                                "eventTypes": [
+                                    {
+                                        "eventType": "Error"
+                                    },
+                                    {
+                                        "eventType": "Warning"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "datasources",
+                            "apiVersion": "2020-08-01",
+                            "name": "WindowsEventsApplication",
+                            "dependsOn": [
+                                "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaces_logs_analytics_01_name'))]"
+                            ],
+                            "kind": "WindowsEvent",
+                            "properties": {
+                                "eventLogName": "Application",
+                                "eventTypes": [
+                                    {
+                                        "eventType": "Error"
+                                    },
+                                    {
+                                        "eventType": "Warning"
+                                    },
+                                    {
+                                        "eventType": "Information"
+                                    }
+                                ]
+                            }
+                        },   
+                        {
+                            "apiVersion": "2020-08-01",
+                            "type": "datasources",
+                            "name":  "DataSource_WindowsPerformanceCounter_0a240e42-a7b0-47e2-a044-a20d678cb63e",
+                            "dependsOn": [
+                                "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaces_logs_analytics_01_name'))]"
+                            ],
+                            "kind":  "WindowsPerformanceCounter",
+                            "properties":  {
+                                "objectName":  "Network Adapter",
+                                "instanceName":  "*",
+                                "intervalSeconds":  60,
+                                "counterName":  "Bytes Sent/sec"
+                            }
+                        }
+                    ],
+                    "tags": {
+                        "from": "arm-template"
+                    },
+                    "properties": {
+                        "sku": {
+                            "name": "pergb2018"
+                        },
+                        "retentionInDays": 30,
+                        "features": {
+                            "enableLogAccessUsingOnlyResourcePermissions": true
+                        },
+                        "workspaceCapping": {
+                            "dailyQuotaGb": 1
+                        },
+                        "publicNetworkAccessForIngestion": "Enabled",
+                        "publicNetworkAccessForQuery": "Enabled"
+                    }
+                }
+            ]
+        }
