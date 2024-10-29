@@ -5,7 +5,7 @@ resource automationAccount 'Microsoft.Automation/automationAccounts@2021-06-22' 
   }
   location: 'japaneast'
   tags: {
-    service: 'abc'
+    service: 'def'
   }
   properties: {
     sku: {
